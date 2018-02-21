@@ -18,7 +18,7 @@
 
   <h2>Add new user  </h2>
 
-  <form method="post" action="GetIndexPageServlet">
+  <form method="post" action="/add_user">
      <label> <input type="text" name="name">Имя</label>
       <label><input type="number" name="age">Возраст</label>
       <br>

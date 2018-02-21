@@ -10,35 +10,33 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class GetIndexPageServlet extends HttpServlet {
 
-    private List<User> users;
+    private Map<Integer,User> users;
+
 
     @Override
     public void init() throws ServletException {
-        users = new CopyOnWriteArrayList<>();
-        users.add(new User("Java", 10));
-        users.add(new User("Vision", 20));
+      Object users=getServletContext().getAttribute("users");
+      if(users==null)
+      {
+          throw new IllegalStateException("You're repository does not initialize!!");
+      }
+      else this.users= (ConcurrentHashMap<Integer, User>) users;
+      ((ConcurrentHashMap<Integer, User>) users).put(1,new User("igor",20));
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("users", users);
+        request.setAttribute("users", users.values());
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
         requestDispatcher.forward(request, response);
-
-    }
-
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String name=request.getParameter("name");
-        String age=request.getParameter("age");
-        User user= new User(name,Integer.valueOf(age));
-        users.add(user);
-        doGet(request,response);
-
 
     }
 

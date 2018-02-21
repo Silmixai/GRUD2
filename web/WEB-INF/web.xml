@@ -5,9 +5,8 @@
          version="3.1">
 
     <welcome-file-list>
-        <welcome-file>index2.jsp</welcome-file>
+        <welcome-file>/</welcome-file>
     </welcome-file-list>
-    
     
     <servlet>
         <servlet-name>GetIndexPageServlet</servlet-name>
@@ -16,7 +15,27 @@
     
     <servlet-mapping>
         <servlet-name>GetIndexPageServlet</servlet-name>
-        <url-pattern>/GetIndexPageServlet</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddUserServlet</servlet-name>
+        <servlet-class>com.mixail.servlets.AddUserServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddUserServlet</servlet-name>
+        <url-pattern>/add_user</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateUserServlet</servlet-name>
+        <url-pattern>/update</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateUserServlet</servlet-name>
+        <servlet-class>com.mixail.servlets.UpdateUserServlet</servlet-class>
+    </servlet>
+
 
 </web-app>
