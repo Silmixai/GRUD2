@@ -29,7 +29,10 @@ public class GetIndexPageServlet extends HttpServlet {
           throw new IllegalStateException("You're repository does not initialize!!");
       }
       else this.users= (ConcurrentHashMap<Integer, User>) users;
-      ((ConcurrentHashMap<Integer, User>) users).put(1,new User("igor",20));
+      User user= new User("igor",20);
+      user.setId(1);
+
+      ((ConcurrentHashMap<Integer, User>) users).put(1,user);
 
     }
 

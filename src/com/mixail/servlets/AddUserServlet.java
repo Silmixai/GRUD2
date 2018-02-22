@@ -28,6 +28,7 @@ public class AddUserServlet extends HttpServlet {
         User user = new User(name, Integer.valueOf(age));
 
         final int id = this.id.getAndIncrement();
+        user.setId(id);
         users.put(id, user);
         request.setAttribute("users", users.values());
 

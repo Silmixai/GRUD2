@@ -1,12 +1,21 @@
 package com.mixail.model;
 
 public class User {
-    String  name;
-    int age;
+    private String name;
+    private int age;
+    private int id;
 
     public User(String name, int age) {
         this.name = name;
         this.age = age;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

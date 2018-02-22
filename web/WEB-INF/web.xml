@@ -36,6 +36,17 @@
         <servlet-name>UpdateUserServlet</servlet-name>
         <servlet-class>com.mixail.servlets.UpdateUserServlet</servlet-class>
     </servlet>
+    
+    
+    <servlet>
+        <servlet-name>DeleteUserServlet</servlet-name>
+        <servlet-class>com.mixail.servlets.DeleteUserServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>DeleteUserServlet</servlet-name>
+        <url-pattern>/delete</url-pattern>
+    </servlet-mapping>
 
 
 </web-app>

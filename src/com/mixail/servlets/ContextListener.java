@@ -1,3 +1,5 @@
+package com.mixail.servlets;
+
 import com.mixail.model.User;
 
 import javax.servlet.ServletContext;
@@ -22,8 +24,7 @@ private Map<Integer,User> users;
     public void contextInitialized(ServletContextEvent sce) {
         ServletContext servletContext = sce.getServletContext();
         users = new ConcurrentHashMap<>();
-        final User user = new User("first",10);
-        this.users.put(1, user);
+
         servletContext.setAttribute("users",users);
     }
 

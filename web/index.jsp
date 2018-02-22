@@ -12,7 +12,18 @@
  <ul>
    <li> Name:<c:out value="${user.name}"> </c:out>
      <li> Age: <c:out value="${user.age}"> </c:out>
+     <li> Id: <c:out value="${user.id}"> </c:out>
+     <form method="get" action="/update">
+         <input type="number" hidden name="id" value="${user.id}" />
+         <input type="submit" value="Editing"/>
+     </form>
+     <form method="post" action="/delete">
+         <input type="number" hidden name="id" value="${user.id}" />
+         <input type="submit" name="delete" value="Delete"/>
+     </form>
+
  </ul>
+
 </c:forEach>
 
 
@@ -22,8 +33,11 @@
      <label> <input type="text" name="name">Имя</label>
       <label><input type="number" name="age">Возраст</label>
       <br>
-      <input type="submit">
+      <input type="submit" value="Add">
   </form>
+
+
+
 
 
 
